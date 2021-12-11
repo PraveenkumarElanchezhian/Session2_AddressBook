@@ -11,8 +11,6 @@ const getAddressBookDataFromStorage = () => {
   return localStorage.getItem('AddressBookList') ? JSON.parse(localStorage.getItem('AddressBookList')) : [];
 };
 
-
-
 const createInnerHtml = () => {
 
     const headerHtml = 
