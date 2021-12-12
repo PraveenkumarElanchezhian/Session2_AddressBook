@@ -57,6 +57,14 @@ const createInnerHtml = () => {
     return stateHtml
   };
 
+  const update = (node) => {
+    let addressBookData = addressBookDataList.find(i => i.id == node.id);
+    if (!addressBookData)
+      return;
+    localStorage.setItem('editEmp', JSON.stringify(addressBookData));
+    window.location.replace(site_properties.add_address_book_page);
+  };
+
   const remove = (node) => {
     let addressBookData = addressBookDataList.find(i => i.id == node.id);
     if (!addressBookData)
@@ -66,17 +74,7 @@ const createInnerHtml = () => {
                   .map(i => i.id)
                   .indexOf(addressBookData.id);
     addressBookDataList.splice(index, 1);
-
     localStorage.setItem("AddressBookList", JSON.stringify(addressBookDataList));
-    
     document.querySelector(".emp-count").textContent = addressBookDataList.length;
     createInnerHtml();
-  };
-  
-  const update = (node) => {
-    let addressBookData = addressBookDataList.find(i => i.id == node.id);
-    if (!addressBookData)
-      return;
-    localStorage.setItem('editEmp', JSON.stringify(addressBookData));
-    window.location.replace(site_properties.add_address_book_page);
   };
