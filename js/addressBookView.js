@@ -61,7 +61,7 @@ const createInnerHtml = () => {
     let addressBookData = addressBookDataList.find(i => i.id == node.id);
     if (!addressBookData)
       return;
-    localStorage.setItem('editEmp', JSON.stringify(addressBookData));
+   
     window.location.replace(site_properties.add_address_book_page);
   };
 
