@@ -66,7 +66,9 @@ const createInnerHtml = () => {
                   .map(i => i.id)
                   .indexOf(addressBookData.id);
     addressBookDataList.splice(index, 1);
+
     localStorage.setItem("AddressBookList", JSON.stringify(addressBookDataList));
+    
     document.querySelector(".emp-count").textContent = addressBookDataList.length;
     createInnerHtml();
   };
